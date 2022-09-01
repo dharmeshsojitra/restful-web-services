@@ -4,8 +4,16 @@ public class HelloWorldBean {
 
     private String message;
 
+    private int num;
+
     public HelloWorldBean(String message) {
         this.message = message;
+    }
+
+
+    public HelloWorldBean(String message, int num) {
+        this.message = message;
+        this.num = num;
     }
 
     public String getMessage() {
@@ -17,12 +25,18 @@ public class HelloWorldBean {
 
     }
 
+    public int getNum() {
+        return num;
+    }
 
+    public void setNum(int num) {
+        this.num = num;
+    }
 
-    @Override
+/* @Override
     public String toString() {
         return "HelloWorldBean{" +
                 "message='" + message + '\'' +
                 '}';
-    }
+    }*/
 }
