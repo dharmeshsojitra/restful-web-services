@@ -7,6 +7,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class UserController {
@@ -21,7 +22,11 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public User findById(@PathVariable int id){
-        return userDaoService.findById(id);
+        User user  = userDaoService.findById(id);
+        if(Objects.isNull(user)){
+            throw new NoUserFoundException("id:"+id);
+        }
+        return user;
     }
 
     @PostMapping("/users")
